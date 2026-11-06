@@ -47,7 +47,7 @@ This project models work-group compatibility among students as a weighted graph 
 ### 2. Required Graph Analytics (`base_notebook.ipynb`)
 - [x] Report node count, edge count, density, and graph type (simple, undirected, weighted)
 - [x] **Connectivity analysis:** compare components across all three models; sweep the similarity threshold and both neighbor-$k$ settings; document how disconnected components affect distance metrics
-- [ ] **Distance measures:** compute graph **diameter** and **radius** (explicitly stating unweighted hop convention vs. weighted distance $d = 1 - w$)
+- [x] **Distance measures:** compute graph **diameter** and **radius** using unweighted hops and weighted edge cost $d = 1 - w$, reporting metrics per connected component
 - [ ] **Centrality measures:** compute and interpret relevant centralities (degree / strength, betweenness for bridge profiles, closeness / eigenvector)
 - [ ] **Community detection:** run a community detection algorithm (e.g., Louvain), report modularity, and interpret the resulting student clusters
 - [ ] *(Optional bonus)* Optimal work-pair matching (`nx.max_weight_matching`) to propose concrete project pairs
