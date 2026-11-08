@@ -1,6 +1,10 @@
 ipykernel>=6.29
-matplotlib>=3.9
+kaleido>=0.2.1
+nbclient>=0.10
+nbformat>=5.10
 networkx>=3.2
 numpy>=2.0
 pandas>=2.2
+plotly>=5.24
 pyvis>=0.3.2
+scipy>=1.14
