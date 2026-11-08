@@ -8,7 +8,7 @@ This project models work-group compatibility among students as a weighted graph 
 
 ## Repository Structure
 
-- `base_notebook.ipynb` — Main Jupyter notebook (data cleaning, graph construction, baseline comparisons, and visualizations).
+- `base_notebook.ipynb` — Main Jupyter notebook (data cleaning, graph construction, baseline comparisons, connectivity sweeps, distance and centrality plots).
 - `graph.html` — Standalone interactive network visualization generated with PyVis.
 - `requirements.txt` — Python dependencies needed to reproduce the notebook.
 - `mbti_profiles.csv` *(local only, ignored by Git)* — Class survey dataset placed at the project root before running the notebook.
