@@ -9,7 +9,6 @@ This project models work-group compatibility among students as a weighted graph 
 - `base_notebook.ipynb` — Main Jupyter notebook (data cleaning, graph construction, baseline comparisons, connectivity sweeps, distance and centrality plots, Louvain community detection, maximum-weight team assignment, and interactive Plotly visualizations).
 - `graph.html` — Standalone interactive network explorer (PyVis / `vis-network`) with Louvain community filtering and optimal team highlighting.
 - `pyproject.toml` & `uv.lock` — Reproducible `uv` project configuration (`mbti-graph-analytics`) and locked dependency graph.
-- `requirements.txt` — Synchronized Python dependencies for standard `pip` environments.
 - `mbti_profiles.csv` *(local only, ignored by Git)* — Class survey dataset placed at the project root before running the notebook.
 
 ---
@@ -22,59 +21,41 @@ This project models work-group compatibility among students as a weighted graph 
    cd mbti-graph-analytics
    ```
 
-2. **Set up the Python environment**
-
-   **Option A — Using `uv` (recommended):**
+2. **Set up the Python environment with [`uv`](https://docs.astral.sh/uv/)**
    ```bash
    uv venv --prompt mbti-graph-analytics
    uv sync
    source .venv/bin/activate
    ```
 
-   **Option B — Using `venv` + `pip`:**
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   pip install -r requirements.txt
-   ```
-
 3. **Run the notebook**
-   Place `mbti_profiles.csv` at the project root, open `base_notebook.ipynb` in Jupyter / VS Code, and run all cells from top to bottom. Running the final section regenerates `graph.html`, which can be opened directly in any web browser.
+   Place `mbti_profiles.csv` at the project root, open `base_notebook.ipynb` in Jupyter / VS Code (kernel `mbti-graph-analytics`), and run all cells from top to bottom. Running the final section regenerates `graph.html`, which can be opened directly in any web browser.
 
 ---
 
-## Project Checklist
+## Network Models Overview
 
-### 1. Data & Graph Modeling
-- [x] Collect and clean class 16Personalities dataset (`mbti_profiles.csv`, 23 complete profiles)
-- [x] Build Baseline 1: Trait Similarity graph (`similarity >= 80%`)
-- [x] Build Baseline 2: Trait Contrast graph (top 5 opposing links per student)
-- [x] Build Final Model: 5D target-partner compatibility + undirected 4-NN graph (23 nodes, 67 edges)
-- [x] Publication-grade Plotly visualizations & interactive HTML network explorer (`graph.html`)
+All three models are represented as simple, undirected, weighted graphs over the $N = 23$ completed student profiles:
 
-### 2. Graph Analytics & Team Assignment (`base_notebook.ipynb`)
-- [x] Report node count, edge count, density, and graph type (simple, undirected, weighted)
-- [x] **Connectivity analysis:** compare components across all three models; sweep the similarity threshold and both neighbor-$k$ settings; document how disconnected components affect distance metrics
-- [x] **Distance measures:** compute graph **diameter** and **radius** using unweighted hops and weighted edge cost $d = 1 - w$, reporting metrics per connected component
-- [x] **Centrality measures:** compute and interpret degree / strength, betweenness, closeness, and component-wise eigenvector centrality for all three graph models
-- [x] **Community detection:** run Louvain modularity optimization (`nx.community.louvain_communities`), compare weighted modularity across all three models ($Q = 0.341$ on `G_compat`), and interpret the 4 resulting student clusters
-- [x] **Optimal work-pair assignment:** compute maximum-cardinality maximum-weight matching (`nx.max_weight_matching`), verify lossless optimality against the complete graph $K_{23}$, and assign all 23 students into 10 dyads + 1 optimal triad
+| Model | Construction Rule | Nodes | Edges | Density | Components | Louvain Modularity $Q$ |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **Baseline 1 — Trait Similarity (`G_sim`)** | Pairwise similarity $\ge 80\%$ across 5 continuous traits | 23 | 140 | `0.553` | 1 | `0.128` |
+| **Baseline 2 — Trait Contrast (`G_contrast`)** | Top-5 most opposing profiles per student (union) | 23 | 87 | `0.344` | 1 | `0.095` |
+| **Final Model — Compatibility (`G_compat`)** | Symmetric 5D target-partner fit + $k$-NN ($k = 4$) | **23** | **67** | **`0.265`** | **1** | **`0.341`** |
 
-### 3. GitHub Repository
-- [x] Clean repository structure with `.gitignore` excluding raw `*.csv` files
-- [x] Reproducible environment (`pyproject.toml`, `uv.lock`, `requirements.txt`) and setup instructions in `README.md`
-- [ ] Add external link (e.g., Google Drive) to the dataset in `README.md` for grading reproduction
-- [x] Final update of `base_notebook.ipynb` and `README.md` once all graph metrics are added
+---
 
-### 4. Written Report (PDF, $\le$ 15 pages — Due Nov 10 at 8:00 AM on Inside)
-- [ ] Use the official report template provided on Inside
-- [ ] Include all three group members' names (Guillaume, Brian, Jonathan) and the GitHub repository link
-- [ ] State the clear research question motivating the graph analysis
-- [ ] Justify modeling choices (nodes, edge weights, undirected vs. directed, simple graph vs. multigraph)
-- [ ] Mandatory disclosure 1: identify data source and collection process
-- [ ] Mandatory disclosure 2: state whether any existing code for this dataset was reused (+ citations if applicable)
-- [ ] Mandatory disclosure 3: state whether AI tools were used and describe their purpose
+## Analytical Pipeline
 
-### 5. Oral Defense (Nov 10, 2:00 PM – 5:00 PM)
-- [ ] Prepare presentation slides (PowerPoint or similar)
-- [ ] Rehearse timing: **8 minutes** presentation + **2 minutes** Q&A, with all three team members speaking
+1. **Graph Modeling & Baselines** — Continuous 5D trait encoding (`Energy E`, `Mind N`, `Nature T`, `Tactics J`, `Identity A`) comparing pure homophily (`G_sim`) and pure contrast (`G_contrast`) against complementary work-group compatibility (`G_compat`).
+2. **Connectivity & Sensitivity Sweeps** — Component analysis across models and full parameter sweeps over similarity thresholds and neighbor counts $k$.
+3. **Shortest-Path Distance Metrics** — Unweighted hop distances and weighted friction costs ($d = 1 - w$), establishing compact cohort reachability on `G_compat` (diameter `4` hops / `0.644` weighted; radius `2` hops / `0.358` weighted).
+4. **Centrality Profiles** — Comparative evaluation of degree, weighted strength, betweenness, closeness, and eigenvector centralities to distinguish local hubs from structural bridges.
+5. **Community Detection** — Weighted Louvain optimization (`seed = 42`), uncovering 4 balanced psychometric clusters ($n = 6, 6, 6, 5$; $Q = 0.341$) profiled via smooth convex hulls and 5-trait radar signatures.
+6. **Optimal Cohort Team Assignment** — Edmonds' Blossom maximum-weight matching (`nx.max_weight_matching`), proving lossless global optimality against $K_{23}$ (total dyad weight `9.576`, mean compatibility `87.1%`) and partitioning all 23 students into **10 dyads + 1 triad**.
+
+---
+
+## Dataset & Privacy
+
+To protect individual survey responses, raw `*.csv` files are excluded from version control via `.gitignore`. Place `mbti_profiles.csv` at the project root prior to executing `base_notebook.ipynb`.
