@@ -1,8 +1,5 @@
 # MBTI Student Compatibility Network
 
-**Course:** Graph Analytics 2026 — Albert School  
-**Team:** Guillaume, Brian, Jonathan  
-
 This project models work-group compatibility among students as a weighted graph based on continuous 16Personalities scores (`Energy E`, `Mind N`, `Nature T`, `Tactics J`, `Identity A`). Starting from tabular survey responses ($N = 23$ completed profiles), we compare two simple baselines (trait similarity and trait contrast) against a 5D target-partner compatibility graph built with $k$-nearest neighbors ($k = 4$), analyze its structural properties (connectivity, shortest-path distances, centralities, and Louvain communities), and derive an optimal cohort team assignment via maximum-weight matching.
 
 ---
