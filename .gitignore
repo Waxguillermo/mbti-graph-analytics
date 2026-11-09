@@ -4,3 +4,6 @@ __pycache__/
 .DS_Store
 lib/
 *.csv
+!mbti_profiles_anon.csv
+real_notebook.ipynb
+real_graph.html
