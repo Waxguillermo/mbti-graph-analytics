@@ -2,6 +2,16 @@
 
 This project models work-group compatibility among students as a weighted graph based on continuous 16Personalities scores (`Energy E`, `Mind N`, `Nature T`, `Tactics J`, `Identity A`). Starting from tabular survey responses ($N = 25$ completed profiles out of $33$ enrolled students, anonymized as `S01`–`S25`), we compare two simple baselines (trait similarity and trait contrast) against a 5D target-partner compatibility graph built with $k$-nearest neighbors ($k = 4$), analyze its structural properties (connectivity, shortest-path distances, centralities, and Louvain communities), and derive an optimal cohort team assignment via maximum-weight matching.
 
+```mermaid
+flowchart LR
+    A["Survey Profiles (N = 25, S01-S25)"] --> B["Baselines (G_sim L1, G_contrast 5-NN)"]
+    A --> C["Compatibility Graph (G_compat, L2 Target + 4-NN)"]
+    C --> D["Topology & Metrics (Sweeps, Dijkstra, Centralities)"]
+    C --> E["Louvain Communities (4 Clusters, Q = 0.340)"]
+    E --> F["Edmonds Matching (11 Dyads + 1 Triad)"]
+    F --> G["Interactive Explorer (graph.html)"]
+```
+
 ---
 
 ## Repository Structure
@@ -47,12 +57,12 @@ All three models are represented as simple, undirected, weighted graphs over the
 
 ## Analytical Pipeline
 
-1. **Graph Modeling & Baselines** — Continuous 5D trait encoding (`Energy E`, `Mind N`, `Nature T`, `Tactics J`, `Identity A`) comparing pure homophily (`G_sim`) and pure contrast (`G_contrast`) against complementary work-group compatibility (`G_compat`).
+1. **Graph Modeling & Baselines** — Continuous 5D trait encoding (`Energy E`, `Mind N`, `Nature T`, `Tactics J`, `Identity A`) comparing $L_1$ homophily (`G_sim`) and polar contrast (`G_contrast`) against a normalized $L_2 / \sqrt{5}$ target-partner model (`G_compat`), verified invariant across anchor sweeps $\alpha \in [0.55, 0.75]$ ($12/12$ identical optimal matched pairs).
 2. **Connectivity & Sensitivity Sweeps** — Component analysis across models and full parameter sweeps over similarity thresholds and neighbor counts $k$.
-3. **Shortest-Path Distance Metrics** — Unweighted hop distances and weighted friction costs ($d = 1 - w$), establishing compact cohort reachability on `G_compat` (diameter `4` hops / `0.619` weighted; radius `2` hops / `0.312` weighted).
-4. **Centrality Profiles** — Comparative evaluation of degree, weighted strength, betweenness, closeness, and eigenvector centralities to distinguish local hubs from structural bridges (`S15`, `S01`, `S07`, `S22`).
-5. **Community Detection** — Weighted Louvain optimization (`seed = 42`), uncovering 4 psychometric collaboration profiles ($n = 9, 6, 6, 4$; $Q = 0.340$) profiled via smooth convex hulls and 5-trait radar signatures.
-6. **Optimal Cohort Team Assignment** — Edmonds' Blossom maximum-weight matching (`nx.max_weight_matching`), proving lossless global optimality against $K_{25}$ (total dyad weight `10.556`, mean compatibility `88.0%`) and partitioning all 25 students into **11 dyads + 1 triad**.
+3. **Shortest-Path Distance Metrics** — Unweighted hop bounds, raw friction costs ($d = 1 - w$), and mean-normalized friction ($\tilde{d} = (1 - w) / \mu_{1-w}$) with explicit center/periphery identification on `G_compat` (diameter `4` hops / `0.619` raw / `4.37` mean-scaled; radius `2` hops / `0.312` raw / `2.21` mean-scaled; center `S15`, weighted periphery `S05, S10`).
+4. **Centrality Profiles** — Multi-scale evaluation of degree, weighted strength, hop & weighted betweenness, hop & weighted closeness, and eigenvector centralities distinguishing core hubs (`S15`, `S01`, `S07`, `S22`) from friction-weighted connectors (`S19`, `S25`, `S14`).
+5. **Community Detection** — Weighted Louvain optimization (`seed = 42`, $k = 4$ in `88/100` random seeds with modal `[9, 6, 6, 4]` at $Q = 0.340$) benchmarked against Clauset–Newman–Moore, Girvan–Newman, and modularity-plateau alternatives, profiled via smooth convex hulls and 5-trait radar signatures.
+6. **Optimal Cohort Team Assignment** — Edmonds' Blossom maximum-weight matching (`nx.max_weight_matching`), proving lossless global 12-dyad optimality against $K_{25}$ (total dyad weight `10.556`, mean compatibility `88.0%`) and benchmarking the max-min two-stage triad attachment (`11 dyads + 1 triad`) against exact joint optimization.
 
 ---
 
