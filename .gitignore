@@ -12,3 +12,8 @@ real_notebook.ipynb
 real_graph.html
 report/*
 !report/written-report.pdf
+node_modules/
+web/node_modules/
+web/dist/
+web/.vite/
+*.tsbuildinfo
