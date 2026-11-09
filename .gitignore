@@ -10,3 +10,8 @@ lib/
 !mbti_profiles_anon.csv
 real_notebook.ipynb
 real_graph.html
+node_modules/
+web/node_modules/
+web/dist/
+web/.vite/
+*.tsbuildinfo

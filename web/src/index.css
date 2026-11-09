@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-serif: "Instrument Serif", Georgia, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+    --surface-canvas: #fcfcfd;
+    --surface-card: #ffffff;
+    --surface-subtle: #f4f6f9;
+    --border-hairline: rgba(15, 23, 42, 0.07);
+    --border-strong: rgba(15, 23, 42, 0.14);
+
+    /* 16Personalities Refined Accents */
+    --group-analysts: #88619a;
+    --group-analysts-bg: #f5eff8;
+    --group-diplomats: #33a474;
+    --group-diplomats-bg: #ecf8f3;
+    --group-sentinels: #4298b4;
+    --group-sentinels-bg: #edf6f9;
+    --group-explorers: #d99b26;
+    --group-explorers-bg: #fdf6e7;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--surface-canvas);
+    color: #0f172a;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.editorial-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.025),
+    0 8px 24px -8px rgba(15, 23, 42, 0.045);
+}
+
+.editorial-card-hover {
+  transition:
+    border-color 180ms ease,
+    box-shadow 220ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.editorial-card-hover:hover {
+  border-color: var(--border-strong);
+  box-shadow:
+    0 2px 6px rgba(15, 23, 42, 0.04),
+    0 14px 34px -10px rgba(15, 23, 42, 0.08);
+}
+
+.gemini-halo {
+  position: relative;
+}
+
+.gemini-halo::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.25px;
+  background: linear-gradient(135deg, rgba(66, 152, 180, 0.55), rgba(136, 97, 154, 0.55), rgba(51, 164, 116, 0.55));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.dot-grid-canvas {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.075) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
