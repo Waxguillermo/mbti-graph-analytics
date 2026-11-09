@@ -1,0 +1,218 @@
+{
+  "groups": {
+    "analysts": {
+      "name_fr": "Les analystes",
+      "color": "#88619a",
+      "bg": "#e7dfea"
+    },
+    "diplomats": {
+      "name_fr": "Les diplomates",
+      "color": "#33a474",
+      "bg": "#d6ece3"
+    },
+    "sentinels": {
+      "name_fr": "Les sentinelles",
+      "color": "#4298b4",
+      "bg": "#d9eaf0"
+    },
+    "explorers": {
+      "name_fr": "Les explorateurs",
+      "color": "#e4ae3a",
+      "bg": "#f9eed7"
+    }
+  },
+  "types": [
+    {
+      "code": "INTJ",
+      "variant_label": "INTJ-A / INTJ-T",
+      "role": "architect",
+      "title_fr": "Architecte",
+      "snippet_fr": "Esprits imaginatifs et stratèges, avec un plan pour tout.",
+      "group": "analysts",
+      "group_fr": "Les analystes",
+      "color": "#88619a",
+      "bg_color": "#e7dfea",
+      "default_gender": "male"
+    },
+    {
+      "code": "INTP",
+      "variant_label": "INTP-A / INTP-T",
+      "role": "logician",
+      "title_fr": "Logicien",
+      "snippet_fr": "Inventeurs innovants avec une soif de connaissance insatiable.",
+      "group": "analysts",
+      "group_fr": "Les analystes",
+      "color": "#88619a",
+      "bg_color": "#e7dfea",
+      "default_gender": "female"
+    },
+    {
+      "code": "ENTJ",
+      "variant_label": "ENTJ-A / ENTJ-T",
+      "role": "commander",
+      "title_fr": "Commandant",
+      "snippet_fr": "Des dirigeants audacieux, imaginatifs et pleins de volonté, qui trouvent toujours un moyen... ou le créent.",
+      "group": "analysts",
+      "group_fr": "Les analystes",
+      "color": "#88619a",
+      "bg_color": "#e7dfea",
+      "default_gender": "female"
+    },
+    {
+      "code": "ENTP",
+      "variant_label": "ENTP-A / ENTP-T",
+      "role": "debater",
+      "title_fr": "Innovateur",
+      "snippet_fr": "Esprits astucieux et curieux, incapables de résister à un défi intellectuel.",
+      "group": "analysts",
+      "group_fr": "Les analystes",
+      "color": "#88619a",
+      "bg_color": "#e7dfea",
+      "default_gender": "male"
+    },
+    {
+      "code": "INFJ",
+      "variant_label": "INFJ-A / INFJ-T",
+      "role": "advocate",
+      "title_fr": "Avocat",
+      "snippet_fr": "Discrets et mystiques, ils sont pourtant source d’inspiration et d’infatigables idéalistes.",
+      "group": "diplomats",
+      "group_fr": "Les diplomates",
+      "color": "#33a474",
+      "bg_color": "#d6ece3",
+      "default_gender": "male"
+    },
+    {
+      "code": "INFP",
+      "variant_label": "INFP-A / INFP-T",
+      "role": "mediator",
+      "title_fr": "Médiateur",
+      "snippet_fr": "Personnes poétiques, bienveillantes et altruistes, toujours prêtes à aider une bonne cause.",
+      "group": "diplomats",
+      "group_fr": "Les diplomates",
+      "color": "#33a474",
+      "bg_color": "#d6ece3",
+      "default_gender": "female"
+    },
+    {
+      "code": "ENFJ",
+      "variant_label": "ENFJ-A / ENFJ-T",
+      "role": "protagonist",
+      "title_fr": "Protagoniste",
+      "snippet_fr": "Des leaders charismatiques qui suscitent l’inspiration, capables de captiver leur public.",
+      "group": "diplomats",
+      "group_fr": "Les diplomates",
+      "color": "#33a474",
+      "bg_color": "#d6ece3",
+      "default_gender": "male"
+    },
+    {
+      "code": "ENFP",
+      "variant_label": "ENFP-A / ENFP-T",
+      "role": "campaigner",
+      "title_fr": "Inspirateur",
+      "snippet_fr": "Esprits libres enthousiastes, créatifs et sociables, qui trouvent toujours une raison de sourire.",
+      "group": "diplomats",
+      "group_fr": "Les diplomates",
+      "color": "#33a474",
+      "bg_color": "#d6ece3",
+      "default_gender": "female"
+    },
+    {
+      "code": "ISTJ",
+      "variant_label": "ISTJ-A / ISTJ-T",
+      "role": "logistician",
+      "title_fr": "Logisticien",
+      "snippet_fr": "Personnes pragmatiques et attentives aux faits, sur lesquelles on peut s’appuyer en toute confiance.",
+      "group": "sentinels",
+      "group_fr": "Les sentinelles",
+      "color": "#4298b4",
+      "bg_color": "#d9eaf0",
+      "default_gender": "male"
+    },
+    {
+      "code": "ISFJ",
+      "variant_label": "ISFJ-A / ISFJ-T",
+      "role": "defender",
+      "title_fr": "Défenseur",
+      "snippet_fr": "Protecteurs dévoués et chaleureux, toujours prêts à défendre leurs proches.",
+      "group": "sentinels",
+      "group_fr": "Les sentinelles",
+      "color": "#4298b4",
+      "bg_color": "#d9eaf0",
+      "default_gender": "female"
+    },
+    {
+      "code": "ESTJ",
+      "variant_label": "ESTJ-A / ESTJ-T",
+      "role": "executive",
+      "title_fr": "Directeur",
+      "snippet_fr": "Excellents gestionnaires, d’une efficacité inégalée quand il s’agit de gérer les situations... ou les gens.",
+      "group": "sentinels",
+      "group_fr": "Les sentinelles",
+      "color": "#4298b4",
+      "bg_color": "#d9eaf0",
+      "default_gender": "female"
+    },
+    {
+      "code": "ESFJ",
+      "variant_label": "ESFJ-A / ESFJ-T",
+      "role": "consul",
+      "title_fr": "Consul",
+      "snippet_fr": "Personnes extraordinairement attentionnées, sociables et populaires, toujours prêtes à aider les autres.",
+      "group": "sentinels",
+      "group_fr": "Les sentinelles",
+      "color": "#4298b4",
+      "bg_color": "#d9eaf0",
+      "default_gender": "male"
+    },
+    {
+      "code": "ISTP",
+      "variant_label": "ISTP-A / ISTP-T",
+      "role": "virtuoso",
+      "title_fr": "Virtuose",
+      "snippet_fr": "Expérimentateurs hardis et pragmatiques, maîtres de toutes sortes d’outils.",
+      "group": "explorers",
+      "group_fr": "Les explorateurs",
+      "color": "#e4ae3a",
+      "bg_color": "#f9eed7",
+      "default_gender": "male"
+    },
+    {
+      "code": "ISFP",
+      "variant_label": "ISFP-A / ISFP-T",
+      "role": "adventurer",
+      "title_fr": "Aventurier",
+      "snippet_fr": "Artistes flexibles et charmants, toujours prêts à explorer et à vivre de nouvelles expériences.",
+      "group": "explorers",
+      "group_fr": "Les explorateurs",
+      "color": "#e4ae3a",
+      "bg_color": "#f9eed7",
+      "default_gender": "female"
+    },
+    {
+      "code": "ESTP",
+      "variant_label": "ESTP-A / ESTP-T",
+      "role": "entrepreneur",
+      "title_fr": "Entrepreneur",
+      "snippet_fr": "Personnes intelligentes, dynamiques et très perspicaces, qui aiment vraiment vivre sur le fil du rasoir.",
+      "group": "explorers",
+      "group_fr": "Les explorateurs",
+      "color": "#e4ae3a",
+      "bg_color": "#f9eed7",
+      "default_gender": "male"
+    },
+    {
+      "code": "ESFP",
+      "variant_label": "ESFP-A / ESFP-T",
+      "role": "entertainer",
+      "title_fr": "Amuseur",
+      "snippet_fr": "Personnes spontanées, dynamiques et enthousiastes : on ne s’ennuie jamais avec elles.",
+      "group": "explorers",
+      "group_fr": "Les explorateurs",
+      "color": "#e4ae3a",
+      "bg_color": "#f9eed7",
+      "default_gender": "female"
+    }
+  ]
+}
