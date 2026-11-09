@@ -93,7 +93,7 @@ export function GlobalMatchmakerPanel({
       {/* Control & Summary Header Card */}
       <div className="editorial-card rounded-3xl p-5">
         <div className="flex items-center justify-between gap-3">
-          <h2 className="font-editorial text-2xl tracking-tight text-slate-900 italic">
+          <h2 className="font-display text-xl font-semibold tracking-tight text-slate-900">
             Matchmaker
           </h2>
           <span className="rounded-full border border-slate-900/[0.08] bg-slate-50 px-2.5 py-0.5 font-mono-tabular text-[11px] font-medium text-slate-600">

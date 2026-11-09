@@ -285,7 +285,7 @@ export function StudentSwitcherModal({
             {isInitialWelcome ? (
               <div className="relative overflow-hidden border-b border-slate-900/[0.07] bg-white px-6 py-5 sm:px-7">
                 <div className="relative flex items-center justify-between gap-4">
-                  <h2 className="font-editorial text-[32px] leading-none tracking-tight text-slate-950 italic">
+                  <h2 className="font-display text-[26px] leading-none font-semibold tracking-tight text-slate-950">
                     Who are you?
                   </h2>
 
@@ -303,7 +303,7 @@ export function StudentSwitcherModal({
               </div>
             ) : (
               <div className="flex items-center justify-between border-b border-slate-900/[0.06] bg-white px-5 py-3.5 sm:px-6">
-                <span className="font-editorial text-2xl text-slate-900 italic">
+                <span className="font-display text-lg font-semibold tracking-tight text-slate-900">
                   Switch Profile
                 </span>
                 <div className="flex items-center gap-2">

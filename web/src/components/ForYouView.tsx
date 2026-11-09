@@ -133,7 +133,7 @@ export function ForYouView({
             />
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
-                <h1 className="truncate text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
+                <h1 className="font-display truncate text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
                   {student.displayName}
                 </h1>
               </div>
@@ -149,7 +149,7 @@ export function ForYouView({
                 >
                   {student.fullType}
                 </span>
-                <span className="font-editorial text-xl text-slate-700 italic">
+                <span className="font-display text-base font-medium text-slate-600">
                   {typeMeta.title}
                 </span>
               </div>
@@ -263,7 +263,7 @@ export function ForYouView({
       <section>
         <div className="mb-3.5 flex items-center justify-between">
           <div className="flex items-baseline gap-2.5">
-            <h2 className="font-editorial text-2xl tracking-tight text-slate-950 italic sm:text-[28px]">
+            <h2 className="font-display text-xl font-semibold tracking-tight text-slate-950 sm:text-2xl">
               Top 6 Teammates
             </h2>
             <span className="text-xs font-medium text-slate-400">Best 5D synergy</span>
@@ -410,7 +410,7 @@ export function ForYouView({
       <section className="editorial-card rounded-3xl p-4 sm:p-5">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
           <div className="flex items-baseline gap-2">
-            <h2 className="font-editorial text-xl text-slate-900 italic">All Classmates</h2>
+            <h2 className="font-display text-lg font-semibold tracking-tight text-slate-900">All Classmates</h2>
             <span className="font-mono-tabular text-xs text-slate-400">
               {allBreakdowns.length}
             </span>

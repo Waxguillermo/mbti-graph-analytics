@@ -109,7 +109,7 @@ export function HeaderBar({
             </svg>
           </div>
           <div className="flex items-baseline gap-1.5">
-            <span className="font-editorial text-[22px] leading-none tracking-tight text-slate-900 italic">
+            <span className="font-display text-[20px] leading-none font-semibold tracking-tight text-slate-900">
               Synergy
             </span>
           </div>

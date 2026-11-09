@@ -354,7 +354,7 @@ export function TeamStudioView({
       {/* 1. Minimalist Studio Control Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-3">
-          <h1 className="font-editorial text-2xl tracking-tight text-slate-950 italic sm:text-3xl">
+          <h1 className="font-display text-2xl font-semibold tracking-tight text-slate-950 sm:text-[26px]">
             Team Studio
           </h1>
 
@@ -659,7 +659,7 @@ export function TeamStudioView({
       <section className="editorial-card rounded-3xl p-5">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
           <div className="flex items-baseline gap-2">
-            <h2 className="font-editorial text-xl text-slate-900 italic">
+            <h2 className="font-display text-lg font-semibold tracking-tight text-slate-900">
               {teamDraftIds.length < targetTeamSize
                 ? `Best Teammates to Add`
                 : `Swap a Teammate`}
