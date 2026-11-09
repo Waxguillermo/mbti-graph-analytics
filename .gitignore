@@ -10,3 +10,5 @@ lib/
 !mbti_profiles_anon.csv
 real_notebook.ipynb
 real_graph.html
+report/*
+!report/written-report.pdf

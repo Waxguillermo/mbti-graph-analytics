@@ -16,30 +16,33 @@ flowchart LR
 
 ## Repository Structure
 
-- `base_notebook.ipynb` — Main Jupyter notebook (data cleaning, graph construction, baseline comparisons, connectivity sweeps, distance and centrality plots, Louvain community detection, maximum-weight team assignment, and interactive Plotly visualizations on the anonymized cohort).
-- `mbti_profiles_anon.csv` — Anonymized class survey dataset (`S01`–`S33`, randomly permuted to prevent roster re-identification) included for direct reproducibility.
-- `graph.html` — Standalone interactive network explorer (PyVis / `vis-network`) with Louvain community filtering and optimal team highlighting.
-- `pyproject.toml` & `uv.lock` — Reproducible `uv` project configuration (`mbti-graph-analytics`) and locked dependency graph.
+| Path | Purpose |
+| :--- | :--- |
+| `base_notebook.ipynb` | Main Jupyter notebook (graph modeling, baselines, sweeps, distances, centralities, Louvain communities, Edmonds matching, and Plotly visuals) |
+| `mbti_profiles_anon.csv` | Anonymized cohort survey dataset (`S01`–`S33`, randomly permuted) included for direct reproducibility |
+| `graph.html` | Standalone interactive network explorer (PyVis / `vis-network`) with Louvain community filtering and optimal team toggles |
+| `validation_checks.py` | Statistical validation script (Monte Carlo modularity null models, centroid Spearman correlations, categorical $\text{ARI}/\text{NMI}$, and $(k, \alpha)$ sensitivity grid) |
+| `report/written-report.pdf` | Final written project report (PDF) on the anonymized $N = 25$ cohort |
+| `pyproject.toml` | Reproducible `uv` project configuration (`mbti-graph-analytics`, locked in `uv.lock`) |
 
 ---
 
 ## How to Run and Reproduce
 
-1. **Clone the repository**
+1. **Clone the repository and sync dependencies with [`uv`](https://docs.astral.sh/uv/)**
    ```bash
    git clone https://github.com/Waxguillermo/mbti-graph-analytics.git
    cd mbti-graph-analytics
+   uv sync
    ```
 
-2. **Set up the Python environment with [`uv`](https://docs.astral.sh/uv/)**
+2. **Run the statistical validation checks**
    ```bash
-   uv venv --prompt mbti-graph-analytics
-   uv sync
-   source .venv/bin/activate
+   uv run python validation_checks.py
    ```
 
 3. **Run the notebook**
-   Open `base_notebook.ipynb` in Jupyter / VS Code (kernel `mbti-graph-analytics`) and run all cells from top to bottom. It loads `mbti_profiles_anon.csv` directly and regenerates `graph.html`, which can be opened in any web browser.
+   Open `base_notebook.ipynb` in Jupyter / VS Code (kernel `.venv`) and run all cells from top to bottom. It loads `mbti_profiles_anon.csv` directly and regenerates `graph.html`, which can be opened in any web browser.
 
 ---
 
